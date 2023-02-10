@@ -52,11 +52,22 @@ jobs:
     - name: Install NWBE locally
       run: python nwb-explorer/utilities/install.py
 
+    - name: Tests 1
+      run: |
+        echo Testing scripts...
+        python nwb_table_readme.py --update_readme_only
+        
+        ls -alt validation_folder
+        
+        
     - name: Tests
       run: |
         echo Testing scripts...
-        #python nwb_table_readme.py --dandiset_limit
+        python nwb_table_readme.py --dandiset_limit
         python nwb_table_readme.py --update_readme_only
+        
+        ls -alt validation_folder
+        
         #python nwbinspector_bulk.py
 
     - name: Final file info
